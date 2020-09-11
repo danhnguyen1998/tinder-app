@@ -325,7 +325,7 @@ PODS:
   - RNInputMask (4.1.0)
   - RNPermissions (2.2.0):
     - React
-  - RNVectorIcons (6.7.0):
+  - RNVectorIcons (6.6.0):
     - React
   - Yoga (1.14.0)
 
@@ -528,7 +528,7 @@ SPEC CHECKSUMS:
   RNCPicker: a2bf7bad059f23de52add203c3c5a3bc5b5239d8
   RNInputMask: 815461ebdf396beb62cf58916c35cf6930adb991
   RNPermissions: 477d88d0be7ecb0a7b344e4d5fbb0352de104626
-  RNVectorIcons: 368d6d8b8301224e5ffb6254191f4f8876c2be0d
+  RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Yoga: 3ebccbdd559724312790e7742142d062476b698e
 
 PODFILE CHECKSUM: 1ea11450d703f0d74f4397050d74f94cd7011123

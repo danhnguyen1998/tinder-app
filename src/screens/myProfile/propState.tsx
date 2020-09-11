@@ -4,7 +4,7 @@ interface IProps extends IDispatchToProps, IStateToProps {
 
 interface IDispatchToProps {
   getRandomUserAction?: () => void;
-  swipeUserAction?: (user) => void;
+  swipeUserAction?: (user: any) => void;
 }
 
 interface IStateToProps {

@@ -20,9 +20,9 @@ function* getRandomUserWatcher() {
 }
 
 function* swipeUserWatcher() {
-  yield takeLatest(swipeUserAction, function* ({payload}) {
+  yield takeLatest(swipeUserAction, function* ({payload}: any) {
     try {
-      let data = yield select((state: RootState) => state.screens.randomUserReducer.data);
+      const data = yield select((state: RootState) => state.screens.randomUserReducer.data);
       yield put(onLoadingAction());
       if (payload) {
         data.push(payload);

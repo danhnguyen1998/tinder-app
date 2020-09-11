@@ -1,7 +1,7 @@
 import BottomTabNavigation from '@src/containers/components/bottomNavigation';
 import {common, colors} from '@src/styles';
 import React, {Fragment} from 'react';
-import {Text, Image, View, TouchableOpacity, Animated} from 'react-native';
+import {Text, Image, View, TouchableOpacity, Animated, Easing} from 'react-native';
 import {connect} from 'react-redux';
 import {APP_PROFILE_SCREEN} from './navigation';
 import {IProps, IState} from './propState';
@@ -10,8 +10,13 @@ import styles from './styles';
 import {Icon} from 'react-native-elements';
 import {getRandomUserAction, swipeUserAction} from './redux/actions';
 import {RootState} from '@src/boot/rootReducers';
+import GestureRecognizer from 'react-native-swipe-gestures';
 
 class MyProfileComponent extends React.Component<IProps> {
+  constructor() {
+    super();
+    this.spinValue = new Animated.Value(0);
+  }
   state: IState = {
     key: 1,
   };
@@ -20,11 +25,21 @@ class MyProfileComponent extends React.Component<IProps> {
     this.props.getRandomUserAction();
   }
 
+  spin() {
+    this.spinValue.setValue(0);
+    Animated.timing(this.spinValue, {
+      toValue: 1,
+      duration: 1000,
+      easing: Easing.linear,
+    }).start();
+  }
+
   _forward = () => {
     this.props.getRandomUserAction();
   };
 
   _next = () => {
+    this.spin();
     this.props.swipeUserAction(this.props.user);
   };
 
@@ -34,6 +49,10 @@ class MyProfileComponent extends React.Component<IProps> {
 
   render() {
     const {key} = this.state;
+    const spin = this.spinValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: ['0deg', '360deg'],
+    });
     return (
       <Fragment>
         <GestureRecognizer
@@ -43,7 +62,7 @@ class MyProfileComponent extends React.Component<IProps> {
           onSwipeLeft={this._forward}
           onSwipeRight={this._next}>
           <View style={common.container}>
-            <Animated.View style={styles.cardContainer}>
+            <Animated.View style={[styles.cardContainer, {transform: [{rotate: spin}]}]}>
               <Image
                 source={{
                   uri: `${

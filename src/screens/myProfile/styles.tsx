@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     width: 180,
     height: 180,
     alignSelf: 'center',
-    marginBottom: 20
+    marginBottom: 20,
   },
   text: {
     marginTop: 5,
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     // color: colors.eastBay,
     marginBottom: 25,
-    fontWeight: '500'
+    fontWeight: '500',
   },
   cardContainer: {
     backgroundColor: 'white',
@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
     position: 'relative',
     justifyContent: 'center',
     height: Dimensions.get('screen').height - 120,
-    transform: [{rotate: spin}]
   },
   titleCard: {
     fontSize: 24,
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
   },
 });
 
